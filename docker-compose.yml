@@ -4,7 +4,7 @@ services:
     mostry:
         container_name: mostry
         build:
-            context: ./docker_mostry
+            context: ./docker_file
         volumes:
             - ./xroad_entur_custom:/usr/src/app/xroad_entur_custom:rw
 
