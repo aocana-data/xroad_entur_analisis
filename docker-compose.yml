@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+    mostry:
+        container_name: mostry
+        build:
+            context: ./docker_mostry
+        volumes:
+            - ./xroad_entur_default:/usr/src/app/xroad_entur_default:rw
+
+        command: >
+            sh -c " cd ./xroad_entur_default &&
+                    python script_app.py &&
+                    ls -lh ../data-input
+            "
+
+volumes:
+    xroad_entur_default:
