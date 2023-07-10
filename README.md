@@ -5,19 +5,23 @@ El analisis se realiza utilizando una librería dedicada al analisis de datasets
 
 ## Estructura general
 
+```
 ├─docker_file  _archivo docker de multistage build para reducción del tamaño del contenedor, integrando la dependencia en el contenedor_
 ├─xroad_entur_default _carpeta donde se alojan los datos necesarios, .env , conf.json, data_input (en este caso es un archivo tipo xlsx), scrpit_app.py el cual va a ser la ejecución del programa_
 ├─docker-compose.yml
+```
+
 
 ---
 
 Carpetas internas de salida
 
+```
 ├xroad_entur_default
 ├─ config_files
-│   └── entur_config.json _archivos de configuracion que permiten el analisis indicandole los valores por default para correr la libreria_
-├── entur_default.ipynb _notebook de previo analisis_
-├── input_data _carpeta donde se aloja el archivo a analisar_
+│   └── entur_config.json #archivos de configuracion que permiten el analisis indicandole los valores por default para correr la libreria
+├── entur_default.ipynb #notebook de previo analisis
+├── input_data #carpeta donde se aloja el archivo a analisar
 │   └── bajada_datos_rltur0001.xlsx
 ├── output_data
 │   ├── csv
@@ -29,3 +33,4 @@ Carpetas internas de salida
 │       ├── xroad-dq-rlm_PORCENTAJE DE COMPLETITUD_2023-07-10.png
 │       └── xroad-dq-rlm_PORCENTAJE DE EXACTITUD_2023-07-10.png
 └── script_app.py _script que permite que realice el analisis de este dataset_
+```
