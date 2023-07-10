@@ -4,15 +4,16 @@ services:
     mostry:
         container_name: mostry
         build:
-            context: ./docker_file
+            context: ./docker_mostry
         volumes:
-            - ./xroad_entur_default:/usr/src/app/xroad_entur_default:rw
+            - ./xroad_entur_custom:/usr/src/app/xroad_entur_custom:rw
 
         command: >
             sh -c " 
             pip list -v &&
-            cd ./xroad_entur_default &&
-            python script_app.py "
+            cd ./xroad_entur_custom &&
+            python script_app.py
+            "
 
 volumes:
-    xroad_entur_default:
+    xroad_entur_custom:

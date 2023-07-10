@@ -1,5 +1,4 @@
-ANALISIS DE CALIDAD Y CRITERIOS MINIMOS XROAD ENTUR
----
+## ANALISIS DE CALIDAD Y CRITERIOS MINIMOS XROAD ENTUR USANDO CRITERIOS PERSONALIZADOS
 
 El analisis se realiza utilizando una librería dedicada al analisis de datasets / bases de datos SQL
 
@@ -7,30 +6,21 @@ El analisis se realiza utilizando una librería dedicada al analisis de datasets
 
 ```
 ├─docker_file  _archivo docker de multistage build para reducción del tamaño del contenedor, integrando la dependencia en el contenedor_
-├─xroad_entur_default _carpeta donde se alojan los datos necesarios, .env , conf.json, data_input (en este caso es un archivo tipo xlsx), scrpit_app.py el cual va a ser la ejecución del programa_
+├─xroad_entur_custom _carpeta donde se alojan los datos necesarios, .env , conf.json, data_input (en este caso es un archivo tipo xlsx), scrpit_app.py el cual va a ser la ejecución del programa_
 ├─docker-compose.yml
 ```
-
 
 ---
 
 Carpetas internas de salida
 
+-   output_di: al igual que en el repositorio por defecto, lo que realiza es un analisis más detallado sobre las columnas, entendiendo el valor de nulidad y exactitud de negocio.
+-
+
+## PASOS PARA EJECUTAR EL REPOSITORIO
+
 ```
-├xroad_entur_default
-├─ config_files
-│   └── entur_config.json #archivos de configuracion que permiten el analisis indicandole los valores por default para correr la libreria
-├── entur_default.ipynb #notebook de previo analisis
-├── input_data #carpeta donde se aloja el archivo a analisar
-│   └── bajada_datos_rltur0001.xlsx
-├── output_data
-│   ├── csv
-│   │   ├── CRITERIOS_MINIMOS_analisis-xroad.csv _criterios minimos por cada columna del dataset_
-│   │   ├── CRITERIOS_MINIMOS_SEGREGADO_analisis-xroad.csv _criterios minimos segregados por porcentaje de columnas que cumplen con el rango de criterios minimos_
-│   │   └── RESUMEN_analisis-xroad.csv _analisis con los valores de completitud y exactitud_
-│   └── gauge_images _imagenes con un gráfico de valores_
-│       ├── xroad-dq-rlm_CRITERIO MINIMO TOTAL_2023-07-10.png
-│       ├── xroad-dq-rlm_PORCENTAJE DE COMPLETITUD_2023-07-10.png
-│       └── xroad-dq-rlm_PORCENTAJE DE EXACTITUD_2023-07-10.png
-└── script_app.py _script que permite que realice el analisis de este dataset_
+$ sudo docker compose up -d --build
 ```
+
+Luego de ejecutar el codigo con la version del paquete establecido en el ./docker_file/Dockerfile , nos entregará una carpeta output, de la que obtendremos los valores de calidad, completitud , exactitu y de criterios minimos.
