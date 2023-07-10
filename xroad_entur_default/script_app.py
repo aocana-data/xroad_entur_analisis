@@ -5,10 +5,10 @@ from    monstry.DataCleaner import  DataCleaner
 
 from dotenv import load_dotenv
 import os
-load_dotenv()
+load_dotenv(dotenv_path=".sample_env")
 
 # %%
-config_path =   "./entur_config.json"
+config_path =   "./config_files/entur_config.json"
 builder     =   Builder(config_path=config_path)
 
 # %%
